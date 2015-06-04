@@ -14,6 +14,20 @@ class Trip
   # def train_name
   #   @train_number
   # end
+
+  # def self.parse(trip_str)
+  #
+  # end
+
+  ## OR
+
+  class << self
+    def parse(trip_str)
+      possible_train_name = /Train ([0-9]+)/.match(trip_str)[1]
+      Trip.new(possible_train_name, 'something')
+    end
+  end
+
 end
 
 describe Trip do
@@ -38,8 +52,10 @@ describe Trip do
     expect(trip.departure_time).to include("PM")
   end
   context 'parsing' do
-    #pseudo 
-
+    it 'finds the train number' do
+      Trip.parse('Train 567')
+      expect(trip.train_name).to eq('567')
+    end
   end
 
 end
