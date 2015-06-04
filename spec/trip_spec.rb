@@ -37,4 +37,9 @@ describe Trip do
     trip = Trip.new('same train', depart_time)
     expect(trip.departure_time).to include("PM")
   end
+  context 'parsing' do
+    #pseudo 
+
+  end
+
 end
